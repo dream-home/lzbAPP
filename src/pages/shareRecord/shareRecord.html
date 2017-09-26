@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>分享记录</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="shareRecord" *ngIf="shareRecordData != null || shareRecordData != ''">
+        <ion-row class="shareRecord_info" *ngFor="let items of shareRecordData">
+            <ion-col>
+                <div class="shareRecord_img">
+                    <img class="shareRecord_imgPath" src="assets/img/avatar.png" *ngIf="!items.imgPath">
+                    <img class="shareRecord_imgPath" src="{{imgUrl+items.imgPath}}" *ngIf="items.imgPath">
+                    <mark>
+                        <img src="assets/img/vipSign.png" *ngIf="items.userType==20"/>
+                    </mark>
+                </div>
+                <div class="shareRecord_cont">
+                    <span>{{items.nickName}}({{items.uid}})</span>
+                    <span>分享时间:{{utils.formatDate(items.createTime)}}</span>
+                </div>
+                <div class="shareRecord_level">
+                    <span class="lv_vip" *ngIf="items.userType==20">VIP用户</span>
+                    <span class="lv_ordinary" *ngIf="items.userType==10">普通用户</span>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="null_record" *ngIf="shareRecordData == null || shareRecordData == ''">
+        <ion-row>
+            <ion-col text-center>
+                没有找到相关记录
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-infinite-scroll *ngIf="showScroll" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

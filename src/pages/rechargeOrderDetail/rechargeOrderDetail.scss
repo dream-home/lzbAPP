@@ -1,0 +1,148 @@
+page-rechargeOrderDetail{
+    
+
+    .item-ios{
+        background: #fff;
+    }
+    .list-ios .item-block .item-inner {
+      border-bottom:0;
+    }
+
+   
+    .list-ios ion-item-options {
+      border-bottom:0;
+    }
+    .list-ios > .item-block:first-child {
+      border-top:0;
+    }
+
+    .list-ios > .item-block:last-child,
+    .list-ios > .item-wrapper:last-child .item-block {
+      border-bottom:0;
+    }
+    .recordName{
+        font-size: 13px;
+         font-weight:500;
+         margin-bottom:7px;
+        span{
+            float: right;
+        }
+    }
+    .recordTime{
+        color: #868686;
+        font-weight: normal;
+        font-size: 13px;
+        span{
+            float: right;
+        }
+    }
+  .recordName b{
+    font-weight: normal;
+    font-size: 11px;
+    display: inline-block;
+    background: #fd8832;
+    color: #fff;
+    line-height: 16px;
+    padding:2px 6px;
+    margin-right: 5px;
+  }
+  ion-item .recordName:last-child{
+    border-top:1px solid #e5e5e5;
+  }
+  .list-ios {
+    margin-bottom:10px;
+  }
+
+  .infos{
+    background: #fff;
+    margin-top: 10px;
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+    padding:20px 15px 20px 30px;
+    font-size: 12px;
+   
+  }
+  .infos div{
+    line-height: 20px;
+  }
+  .infos p{
+  margin-top:8px;
+  }
+  .infos ion-col div:first-child{
+    position: relative;
+  }
+  .infos ion-row{
+     color:#c0c0c0;
+    border-left:1px solid #c0c0c0;
+     padding:0 0 20px 14px;
+  }
+  .infos ion-row:last-child{
+    padding:0 0 0 14px;
+  }
+  .infos ion-row span{
+    background: #c0c0c0;
+     display: block;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: -23px;
+    width: 18px;
+    height: 18px;
+    border-radius:18px;
+
+  }
+  .infos ion-row:last-child span{
+   top:2px;
+  }
+  .infos ion-row.active{
+    color:#ff4444;
+    border-left:1px solid #ff4444;
+    padding:0 0 20px 14px;
+  }
+ 
+  .infos ion-row.active span{
+      top:-4px;
+      left: -23px;
+      background:#ff4444;
+      width:18px;
+      height:18px;
+      border-radius:22px;
+      text-align: center;
+    }
+ 
+   .infos ion-row.active .havaicon span{
+    display: block;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: -23px;
+    background:#ff4444;
+    width: 18px;
+    height: 18px;
+    border-radius:18px;
+    text-align: center;
+  }
+  
+  .copybtn{
+   
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    border-radius: 3px;
+    float: right;
+    font-size: 13px;
+    padding:5px 10px;
+    background: #fff;
+  }
+
+   .infos ion-row.active:last-child{
+    padding:0 0 0 14px;
+  }
+ .infos ion-row.active:last-child span{
+    top:2px;
+  }
+
+  .borderlist{
+    border-top:1px solid #e5e5e5;
+     border-bottom:1px solid #e5e5e5;
+  }
+}

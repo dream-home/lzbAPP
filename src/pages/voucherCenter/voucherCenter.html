@@ -1,0 +1,93 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>充值中心</ion-title>
+   		<ion-buttons end>
+              <button ion-button clear (click)="gotoRechargeRecordPage()">
+              		充值记录
+              </button>
+        </ion-buttons>
+    </ion-toolbar>
+    <!-- 选择充值数额 -->
+	<ion-grid class="modular" style="margin: 0;">
+		 <ion-row>
+		    <ion-col class="litte_title">点击选择匹配金额</ion-col>
+		 </ion-row>
+		 <ion-row text-center style="margin-top: 2px;">
+		    <ion-col col-4>
+		    	<button ion-button class="{{pre_styleNo==0 ? 'styleNext':'stylePre'}}" (click)="select(0,1000)">1000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button class="{{pre_styleNo==1 ? 'styleNext':'stylePre'}}" (click)="select(1,3000)">3000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button  class="{{pre_styleNo==2 ? 'styleNext':'stylePre'}}" (click)="select(2,5000)">5000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button  class="{{pre_styleNo==3 ? 'styleNext':'stylePre'}}" (click)="select(3,10000)">10000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button  class="{{pre_styleNo==4 ? 'styleNext':'stylePre'}}" (click)="select(4,30000)">30000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button  class="{{pre_styleNo==5 ? 'styleNext':'stylePre'}}" (click)="select(5,50000)">50000</button>
+		    </ion-col>
+		 </ion-row>
+	</ion-grid>
+</ion-header>
+<ion-content>
+	<div *ngIf="items!=null && items != ''" >
+		<!-- 列表-->
+		<ion-grid class="modular" *ngFor="let item of items">
+			 <ion-row>
+			    <ion-col col-2 class="headImg">
+			    	<img src="{{imgUrl+item.imgPath}}"  *ngIf="item.imgPath!=null">
+			    	<img src="assets/img/avatar.png"  *ngIf="item.imgPath==null">
+			    	
+			    </ion-col>
+			    <ion-col col-10>
+			    	<div>
+			    		<span>{{item.nickName}}</span>
+			    		<span class="right_span"  style="min-width: 62%;text-align: right;">交易金额：{{nativeService.getFloat2(item.amount,2)}} RMB</span>
+			    	</div>
+			    	<div class="hui_div">
+			    		<span>信用</span>
+			    		<img src="assets/img/reputation.png" class="creditimg" *ngIf="item.credit>0"/>
+			    		<img src="assets/img/reputation.png" class="creditimg" *ngIf="item.credit>1"/>
+			    		<img src="assets/img/reputation.png" class="creditimg" *ngIf="item.credit>2"/>
+			    		<img src="assets/img/reputation.png" class="creditimg" *ngIf="item.credit>3"/>
+			    		<img src="assets/img/reputation.png" class="creditimg" *ngIf="item.credit>4"/>
+			    		<span class="right_span" style="min-width: 58%;text-align: right;">实付金额：{{nativeService.getFloat2(item.rmbAmount,2)}} RMB</span>
+			    	</div>
+			    	<div class="hui_div" >
+			    		支付方式：{{item.bankName}}
+			    	</div>
+			    </ion-col>
+			 </ion-row>
+		</ion-grid>
+		<div style=" text-align: center; padding:32px 0; font-size: 14px; font-weight: 500; color: #666;letter-spacing: 2px;">
+            <span *ngIf="showScroll">
+                下拉加载更多数据...
+            </span>
+            <span *ngIf="!showScroll">
+                已经全部加载完了...
+            </span>
+
+        </div>
+	</div>	
+	<ion-list class="null_list" *ngIf="items == null || items == ''">
+            <ion-row>
+                <ion-col text-center>
+                    没有找到相关记录
+                </ion-col>
+            </ion-row>
+        </ion-list>
+     
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="showScroll">
+			<ion-infinite-scroll-content ></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

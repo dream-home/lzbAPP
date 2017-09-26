@@ -1,0 +1,98 @@
+page-forgetPwd{
+    ion-content{
+        background: #f6f6f6 !important;
+        .forgetPwd{
+            padding:10px 0 0 0;
+            .telPhone{
+                background: #fff;
+                height:50px;
+                line-height: 40px;
+                ion-col{
+                    border-bottom:1px #e5e5e5 solid;
+                    .content_telPhone{
+                        height:100%;
+                        float: left;
+                        margin-left:8px;
+                        font-size: 14px;
+                    }
+                    .input_telPhone{
+                        height:100%;
+                        width:auto;
+                        float: left;
+                        margin-left:3px;
+                        .text-input-ios{
+                            margin:0 0 0 10px;
+                        }
+                    }
+                }
+            }
+            .msgCode{
+                background: #fff;
+                height:50px;
+                line-height: 40px;
+                ion-col{
+                    border-bottom:1px #e5e5e5 solid;
+                    .content_msgCode{
+                        height:100%;
+                        float: left;
+                        margin-left:8px;
+                        font-size: 14px;
+                    }
+                    .input_msgCode{
+                        height:100%;
+                        width:auto;
+                        float: left;
+                        margin-left:3px;
+                        .text-input-ios{
+                            margin:0 0 0 10px;
+                        }
+                    }
+                    button{
+                        float: right;
+                        background:#fff;
+                        color:red;
+                        font-size: 12px;
+                        height:30px;
+                        margin-top:5px;
+                    }
+                }
+            }
+            .newPassword{
+                background: #fff;
+                height:50px;
+                line-height: 40px;
+                ion-col{
+                    .content_newPassword{
+                        height:100%;
+                        float: left;
+                        margin-left:8px;
+                        font-size: 14px;
+                    }
+                    .input_newPassword{
+                        height:100%;
+                        width:240px;
+                        float: left;
+                        margin-left:3px;
+                        .text-input-ios{
+                            margin:0 0 0 10px;
+                        }
+                    }
+                }
+            }
+            .btn_submit{
+                margin-top:50px;
+                ion-col{
+                    button{
+                        background:#fd8832;
+                        color:#fff;
+                        width:95%;
+                        height:40px;
+                        line-height: 40px;
+                        font-size: 16px;
+                        border-radius: 3px;
+                    }
+                }
+            }
+        }
+    }
+}

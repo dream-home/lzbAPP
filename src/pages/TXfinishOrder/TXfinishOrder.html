@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>已完成订单</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+<div *ngIf="items != null && items != ''">
+	<div style="margin-top:10px;"  *ngFor="let i of items">
+		<ion-list (click)="gotoWithdrawCashOrderDetailPage(i.id)"  class="borderlist">
+				 <ion-item>
+				 	<div class="recordName">
+					 	<span>订单号：{{i.orderId}}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					 	<b  *ngIf="i.transactionState == '60'">交易成功</b>
+					 	<b  *ngIf="i.transactionState != '60'" style="background: #767676;">交易失败</b>
+				 	</div>
+				 	<div class="userinfo" style="padding-top: 5px;">
+				 		收款人：{{i.targetName}}<span>{{i.amount}} RMB</span>
+				 	</div>
+				 	<div class="userinfo">
+				 		收款银行：{{i.bankName}}<span style="color: #868686;">实付金额{{i.rmbAmount}} RMB</span>
+				 	</div>
+				 	<div class="userinfo">
+				 		收款卡号：{{i.bankCard}} <span class="recordTime">{{this.utils.formatDate(i.createTime,'yyyy-MM-dd hh:mm:ss')}}</span>
+				 	</div>
+				 
+				 </ion-item>
+		</ion-list>
+
+	</div>
+	<div style=" text-align: center; padding:32px 0; font-size: 14px; font-weight: 500; color: #666;letter-spacing: 2px;">
+            <span *ngIf="showScroll">
+                下拉加载更多数据...
+            </span>
+            <span *ngIf="!showScroll">
+                已经全部加载完了...
+            </span>
+
+        </div>
+</div>
+	<ion-list class="null_list" *ngIf="items == null || items == ''">
+            <ion-row>
+                <ion-col text-center>
+                    没有找到相关记录
+                </ion-col>
+            </ion-row>
+        </ion-list>
+     
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="showScroll">
+			<ion-infinite-scroll-content ></ion-infinite-scroll-content>
+	</ion-infinite-scroll> 
+
+</ion-content>

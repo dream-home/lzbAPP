@@ -1,0 +1,283 @@
+page-transferMoney{
+    .transferMoney{
+        margin-top:10px;
+        .opposingAccount{
+            height:50px;
+            line-height: 50px;
+            background: #fff;
+            ion-col{
+                .content_account{
+                    height:100%;
+                    float: left;
+                    margin-left:10px;
+                    font-size: 14px;
+                }
+                .input_account{
+                    height:100%;
+                    width:auto;
+                    float: left;
+                    margin-left:5px;
+                    input{
+                        height:30px;
+                        line-height: 30px;
+                        margin-top:10px;
+                    }
+                    .text-input-ios{
+                        margin:0 0 0 10px;
+                    }
+                }
+            }
+        }
+        .btn_next{
+            margin-top:50px;
+            ion-col{
+                button{
+                    background:#fd8832;
+                    color:#fff;
+                    width:95%;
+                    height:40px;
+                    line-height: 40px;
+                    font-size: 14px;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+    .transferInfo{
+        .userInfo{
+            background:#fff;
+            ion-col{
+                padding:10px 0 20px 0 !important;
+                div{
+                    position: relative;
+                    width:80px;
+                    margin:0 auto;
+                    img{
+                        width:80px;
+                        height:80px;
+                        border-radius: 50%;
+                    }
+                    mark{
+                        position:absolute;
+                        bottom:5px;
+                        right:5px;
+                        width:20px;
+                        height: 20px;
+                        line-height: 20px;
+                        text-align: center;
+                        background:none;
+                        img{
+                            width:100%;
+                            height:100%;
+                        }
+                    }
+                }
+                span{
+                    display: block;
+                    color:#999;
+                }
+            }
+        }
+    }
+    .transferAmount{
+        margin-top:5px;
+        .content_amount{
+            background:#fff;
+            ion-col{
+                padding:5px 5px 5px 8px !important;
+                border-bottom:1px #e5e5e5 solid;
+            }
+        }
+        .input_amount{
+            background:#fff;
+            ion-col{
+                padding:12px 5px 12px 8px !important;
+                mark{
+                    background:#fff;
+                    color:#000;
+                    float: left;
+                    font-size: 22px;
+                    margin-top:6px;
+                }
+                ion-input{
+                    float: left;
+                    width:250px;
+                    font-size: 30px;
+                    font-weight: bold;
+                    input{
+                        margin:0 !important;
+                    }
+                }
+                span{
+                    float: left;
+                    width:250px;
+                    font-size: 30px;
+                    font-weight: bold;
+                }
+            }
+        }
+        .btn_submit{
+            margin-top:50px;
+            ion-col{
+                text-align: center;
+                button{
+                    background:#fd8832;
+                    color:#fff;
+                    width:95%;
+                    height:40px;
+                    line-height: 40px;
+                    font-size: 14px;
+                    border-radius: 3px;
+                }
+            }
+        }
+    }
+    .payPage{
+      	width: 100%;
+      	height: 100%;
+      	background:rgba(0,0,0,0.6);
+      	position: fixed;
+      	z-index: 999;
+        top:0;
+        left:0;
+      	.alert_pwd{
+            width: 100%;
+            height: 100%;
+            overflow:hidden;
+            position: relative;
+            .pwd{
+              	width:300px;
+              	// height:205px;
+              	background-color: #fff;
+              	margin:70px auto 20px auto;
+              	border-radius: 5px;
+                padding:0;
+                .pwd_title{
+                    border-bottom: 1px solid #fd8832;
+                    ion-col{
+                        height:30px;
+                        line-height: 20px;
+                        font-size: 14px;
+                        .close{
+                          	position: absolute;
+                            top:0;
+                            left:10px;
+                          	font-size: 24px;
+                          	width: 16px;
+                          	height: 100%;
+                          	line-height: 30px;
+                            color:#ccc;
+                        }
+                    }
+                }
+                .payForUser{
+                    ion-col{
+                        margin-top:10px;
+                        color: #333;
+                    }
+                }
+                .payForAmount{
+                    ion-col{
+                        color:#000;
+                        font-size:26px;
+                    }
+                }
+                .pwdnum{
+                  	width:239px;
+                  	height: 40px;
+                  	border:1px solid #ccc;
+                  	margin:10px auto;
+                    span{
+                      	display: block;
+                      	float: left;
+                      	width: 39px;
+                      	height: 100%;
+                      	border-right: 1px solid #e5e5e5;
+                        b{
+                          	display: inline-block;
+                          	margin:15px auto;
+                          	width: 10px;
+                          	height: 10px;
+                          	border-radius: 10px;
+                          	background-color: #000;
+                        }
+                    }
+                    span:last-child{
+                    	   border-right: 0px solid #f4f4f4;
+                    }
+                }
+                .btn_part{
+                    height:40px;
+                    line-height: 30px;
+                	  border-top: 1px #e5e5e5 solid;
+                    color:#fd8832;
+                    ion-col:nth-child(1){
+                        border-right: 1px #e5e5e5 solid;
+                    }
+                }
+            }
+        }
+    }
+    .numset{
+      	position: absolute;
+      	z-index:9999;
+      	bottom: 0;
+      	left: 0;
+      	background-color: #fff;
+        ion-row{
+            ion-col{
+                button{
+                    width: 100%;
+                    height:50px;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #fff;
+                    color: #333;
+                    border:0;
+                }
+                .hui_btn{
+                    background-color: #f4f4f4;
+                }
+            }
+        }
+        .closeNumset{
+            ion-col{
+                padding: 5px 0;
+                font-size: 20px;
+                color: #ccc;
+            }
+        }
+        .keyNum{
+            color:#f53d3d;
+            font-size:20px;
+            ion-col{
+                button{
+                    border-right: 1px solid #e5e5e5;
+                    border-top: 1px solid #e5e5e5;
+                }
+            }
+            ion-col:nth-child(3){
+                button{
+                    border-right:0;
+                    border-top: 1px solid #e5e5e5;
+                }
+            }
+        }
+        .keyOther{
+            color:#f53d3d;
+            font-size:20px;
+            ion-col{
+                button{
+                    border-right: 1px solid #e5e5e5;
+                    border-top: 1px solid #e5e5e5;
+                }
+            }
+            ion-col:nth-child(3){
+                button{
+                    border-right:0;
+                    border-top: 1px solid #e5e5e5;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+          <button ion-button icon-only (click)="goToBackPage()">
+            <ion-icon name="arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title center>关于量子钱包</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content >
+	<div  [innerHTML]="message"></div>
+     
+    <!-- <div *ngIf="data" [innerHTML]="data.remark"></div> -->
+    
+</ion-content>

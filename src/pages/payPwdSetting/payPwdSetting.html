@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      修改支付密码
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+ <ion-list style="margin-top:10px">
+     
+     <ion-item class="two">
+         <ion-label fixed>旧支付密码</ion-label>
+       <!--   <ion-input [disabled]="true" type="password" *ngIf="commonService.user.isSetPayPwd=='0'" placeholder="未设置" bindon-ngModel="oldPayPwd"></ion-input> -->
+         <ion-input maxlength="6" type="password" bindon-ngModel="oldPayPwd" placeholder="请输入您现在的支付密码" ></ion-input>
+     </ion-item>
+     <ion-item class="two">
+         <ion-label fixed>新支付密码</ion-label>
+         <ion-input maxlength="6" type="password" bindon-ngModel="newPayPwd" placeholder="请输入要设置的新支付密码"></ion-input>
+     </ion-item>
+     
+ </ion-list>
+ <button (click)="gotoFindPayPwdPage()" style="background:none;color:#fd8832;float:right;margin-top:-5px;margin-bottom:20px;">忘记支付密码?</button>
+ <div padding>
+   <button ion-button (click)="submitData()"  block>确定</button>
+   
+ </div>
+</ion-content>

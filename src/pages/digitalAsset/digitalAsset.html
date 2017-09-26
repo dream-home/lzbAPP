@@ -1,0 +1,125 @@
+
+<ion-content>
+	<!-- 上面的图标 -->
+	<ion-grid  no-padding no-margin  class="top" >
+		<ion-row  *ngIf="userInfo!=null">
+	            <ion-col text-left>
+	            	<div style="display:inline-block;vertical-align: top;">
+		                <img  src="{{showImage}}" style="width:45px;height:45px;margin:15px 0 0 15px; border-radius:45px;  " />
+	                     <mark>
+	                        <img src="assets/img/vipSign.png" *ngIf="userInfo.userType==20"/>
+	                    </mark>
+	            	</div>
+	            	<div style="display:inline-block;vertical-align: top; padding-left: 5px;">
+	            		<div style="font-size: 1.8rem;" style="margin:20px 0 0 0;">
+	                        UID:{{userInfo.uid}}
+		                </div>
+		                <div class="star" >
+		                   	<span>
+	                        信誉值&nbsp;
+	                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 1"/>
+	                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 2"/>
+	                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 3"/>
+	                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 4"/>
+	                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 5"/>
+	                        </span>
+		                </div>
+	            	</div>
+	            </ion-col>
+	          
+	        </ion-row>
+		 <ion-row>
+		     <ion-col text-center style="position: relative;">
+		     	<img src="assets/img/BL_1.gif" style="width: 100%;display: block;position: absolute;bottom: 0;left: 0;z-index: 3;">
+		    	<img src="assets/img/banner.png" style="width:100%;display: block;">
+		    	<div text-center class="nowprice">
+		    		<span style="font-size:14px;">当前价格：</span><span style="font-size:18px;">{{price}}</span>
+		    	</div>
+		    </ion-col>
+		 </ion-row>
+
+	</ion-grid>
+	<ion-grid class="center" no-margin >
+		 <ion-row>
+		    <ion-col class="options" >
+		    	<div>
+		    		<b style="background-color: #f3a600;"></b><span class="options_name">量子币</span>{{balance}}
+		    	</div>
+		    	<div class="moneyUrladdr">
+		    		<b style="background-color: #bf3936;"></b><span class="options_name">钱包地址</span>
+		    		<button ion-button color="danger" outline small (click)="copyUrl()" no-margin style="vertical-align: middle;float: right;">复制地址</button>
+		    	</div>
+		    	<div>
+		    		{{coinAddress}}
+
+		    	</div>
+		    </ion-col>
+		 </ion-row>
+		 <ion-row style="border-top: 1px solid #e5e5e5;" text-center>
+		    <ion-col col-6 (click)="gotoDigitalRollOutPage()" style="border-right: 1px solid #e5e5e5;" >
+		    	<div class="icon_tab">
+			    	<img src="assets/img/zhuanchu.png" style="width:35px;">
+			    	<p class="tabname">量子币转出</p>
+		    	</div>
+		    </ion-col>
+		    <ion-col col-6 (click)="gotoDigitalExchangePage()" >
+		    	<div class="icon_tab">
+			    	<img src="assets/img/duihuan.png" style="width:35px;">
+			    	<p class="tabname">量子币兑换</p>
+		    	</div>
+		    </ion-col>
+		 </ion-row>
+		 <ion-row style="border-top: 1px solid #e5e5e5;" text-center>
+		    <ion-col col-6 (click)="gotoDigitalAssetRecordPage()" style="border-right: 1px solid #e5e5e5;" >
+		    	<div class="icon_tab">
+			    	<img src="assets/img/jilu.png" style="width:35px;">
+			    	<p class="tabname">转出兑换记录</p>
+		    	</div>
+		    </ion-col>
+		    <ion-col col-6 (click)="gotoSignRecordPage()" >
+		    	<div class="icon_tab">
+			    	<img src="assets/img/qiandao.png" style="width:35px;">
+			    	<p class="tabname" style="margin-top:9px;">裂变记录</p>
+		    	</div>
+		    </ion-col>
+		 </ion-row>
+	</ion-grid>
+</ion-content>
+
+<ion-footer>
+    <div class="float" *ngIf="(showUpdate && showUpdateVersion) || showSignRed">
+        <div class="promptUpdate" *ngIf="showUpdate && showUpdateVersion">
+            <ion-row class="update_img">
+                <ion-col text-center>
+                    <img src="assets/img/update.png"/>
+                </ion-col>
+            </ion-row>
+            <ion-row class="update_title">
+                <ion-col text-center>{{versions}}软件更新提示</ion-col>
+            </ion-row>
+            <ion-row class="update_cont">
+                <ion-col>{{versionUpdates}}</ion-col>
+            </ion-row>
+            <ion-row class="update_btn">
+                <ion-col>
+                    <button (click)="cancellUpdate()">取消</button>
+                </ion-col>
+                <ion-col>
+                    <button (click)="goUpdate()">下载更新</button>
+                </ion-col>
+            </ion-row>
+        </div>
+				<div *ngIf="showSignRed && !(showUpdate && showUpdateVersion)">
+		        <div class="signCont">
+		            <img class="signContBack" id="signContBack" src="assets/img/sign.gif"/>
+		            <div id="signCount">
+		                <span><img src="assets/img/lbsl.png"/></span>
+		                <span>{{redAmount}}</span>
+		            </div>
+		        </div>
+		        <div class="btn_depositAccount">
+		            <img class="depositAccount" src="assets/img/depositAccount.png" (click)="closeRed()"/>
+		        </div>
+		    </div>
+    </div>
+</ion-footer>

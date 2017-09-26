@@ -1,0 +1,143 @@
+page-home {
+    .scanPayment{
+        background:#46adfc;
+        padding:40px 0 !important;
+        .scanPaymentImg{
+            img{
+                width:95px;
+            }
+        }
+        .scanPaymentCon{
+            margin-top:5px;
+            ion-col{
+                span{
+                    color:#fff;
+                }
+            }
+        }
+    }
+    .balance_score{
+        background-image: url('../assets/img/banner.png');
+        background-size: 100% 100%;
+        color:#fff;
+        padding:31px 0 !important;
+        .balance{
+            border-right:1px #e5e5e5 solid;
+            span:nth-child(1){
+                display:block;
+                padding:8px 0 2px 0;
+                font-size: 16px;
+            }
+            span:nth-child(2){
+                display:block;
+                padding:2px 0 8px 0;
+                font-size: 16px;
+            }
+        }
+        .score{
+            span:nth-child(1){
+                display:block;
+                padding:8px 0 2px 0;
+                font-size: 16px;
+            }
+            span:nth-child(2){
+                display:block;
+                padding:3px 0 8px 0;
+                font-size: 16px;
+            }
+        }
+    }
+    .functionList{
+        background:#fff;
+        margin-top:10px;
+        .listPart1{
+            .transferAccounts,
+            .receivables{
+                border-right:1px #e5e5e5 solid;
+                span{
+                    display: block;
+                    margin-top:5px;
+                }
+            }
+            .recharge{
+                span:nth-child(1){
+                    display: block;
+                    width:38px;
+                    height:38px;
+                    margin:0 auto;
+                    position: relative;
+                    mark{
+                        background:red;
+                        color:#fff;
+                        text-align: center;
+                        position: absolute;
+                        min-width: 18px;
+                        min-height: 18px;
+                        padding:2px;
+                        right:-5px;
+                        top:-5px;
+                        font-size: 12px;
+                        border-radius: 50%;
+                    }
+                }
+                span:nth-child(2){
+                    margin-top:8px;
+                    display: block;
+                }
+            }
+            .transferAccounts,
+            .receivables,
+            .recharge{
+                padding:20px 0 !important;
+                border-bottom:1px #e5e5e5 solid;
+                img{
+                    height:38px;
+                    width:38px;
+                }
+            }
+        }
+        .listPart2{
+            .withdrawals,
+            .digitalAsset{
+                border-right:1px #e5e5e5 solid;
+                span:nth-child(1){
+                    display: block;
+                    width:38px;
+                    height:38px;
+                    margin:0 auto;
+                    position: relative;
+                    mark{
+                        background:red;
+                        color:#fff;
+                        text-align: center;
+                        position: absolute;
+                        min-width: 18px;
+                        min-height: 18px;
+                        padding:2px;
+                        right:-5px;
+                        top:-5px;
+                        font-size: 12px;
+                        border-radius: 50%;
+                    }
+                }
+                span:nth-child(2){
+                    margin-top:8px;
+                    display: block;
+                }
+            }
+            .withdrawals,
+            .digitalAsset,
+            .share{
+                padding:20px 0 !important;
+                span{
+                    margin-top:5px;
+                    display: block;
+                }
+                img{
+                    height:38px;
+                    width:38px;
+                }
+            }
+        }
+    }
+}

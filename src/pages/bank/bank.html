@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      我的银行卡
+    </ion-title>
+     <ion-buttons end>
+     		
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding background="background:#fff">
+		<ion-grid no-padding no-margin>
+        <ion-row no-padding no-margin>
+            <ion-col no-padding no-margin>
+
+		      			<div class="div" *ngFor="let b of banks" [style.background-color]="b.color"    style="padding-top: 16px;padding-left: 2px;margin-top: 7px;"  >
+  								<ion-row   (click)="updateBank(b)">
+			      								
+			      						<ion-col   col-2>
+			      							<div style="width:45px;height:45px; padding-top: 2px;padding-left: 2px; border-radius:45px 45px 45px 45px;background-color: white; ">
+			                  					<img src="{{imageUrl+b.logo}}" style="width:40px;height:40px;background-color: white;  " />
+			                  				</div>
+			               				</ion-col>
+			                			<ion-col   col-7  >
+				      		 				<ion-row style="font-size: 15px;">{{b.bankName}}</ion-row>
+		      		          				<ion-row>&nbsp;</ion-row>
+		      		          				<ion-row ><span style="font-size: 15px;">{{b.bankCard}}</span></ion-row>
+						                </ion-col>
+						                <ion-col text-right col-3 style=" padding-left: 3%;">
+						                      	<ion-row>&nbsp;<span class="moren"  *ngIf="b.defaultState==10?true:false" >默认</span></ion-row>
+			      		          				<ion-row>&nbsp;</ion-row>
+			      		          				<ion-row >&nbsp;<span class="moren" (click)="delBank($event,b.id)">删除</span></ion-row>
+						                </ion-col>
+	                 			</ion-row>
+
+					      							
+					      </div>          	
+					      
+					      
+					      <div class="div1" style="padding-top: 12px;padding-left: 7px; margin-top: 5px; color: white;" (click)="addBank()">
+  								<ion-row >
+			      					<ion-col   col-2><img src="assets/img/addBank.png" style="width:35px;height:35px; " /></ion-col>
+			               			<ion-col   col-8 style="line-height:35px">添加银行卡</ion-col>
+			      								
+		               			</ion-row>
+					      							
+					      </div>          	
+					      
+					      
+					      
+					
+			
+			      </ion-col>
+        </ion-row>
+	
+		 </ion-grid>
+</ion-content>

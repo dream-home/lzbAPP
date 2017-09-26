@@ -1,0 +1,58 @@
+<ion-header style="border-bottom:1px #e5e5e5 solid !important;">
+    <ion-toolbar>
+        <ion-title center>交易</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid no-padding class="balance_score">
+        <ion-row>
+            <ion-col class="balance" text-center (click)="goBalanceRecord()">
+                <span>量子基因</span>
+                <span>￥{{!userInfo.balance ? 0 : userInfo.balance}}</span>
+            </ion-col>
+            <ion-col class="score" text-center (click)="goScoreRecord()">
+                <span>裂变算力</span>
+                <span>{{!userInfo.score ? 0 : userInfo.score}}</span>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid no-padding class="functionList">
+        <ion-row class="listPart1">
+            <ion-col class="transferAccounts" text-center (click)="gotoTransferMoneyPage()">
+                <img src="assets/img/transferAccounts.png"><br/>
+                <span>转账</span>
+            </ion-col>
+            <ion-col class="receivables" text-center (click)="gotoCollectMoneyPage()">
+                <img src="assets/img/receivables.png"><br/>
+                <span>收款</span>
+            </ion-col>
+            <ion-col class="recharge" text-center (click)="gotoRechargeMoneyPage()">
+                <span>
+                    <img src="assets/img/recharge.png">
+                    <mark *ngIf="showRechargeOrder">{{orderCount.rechargeOrderCount}}</mark>
+                </span>
+                <span>充值</span>
+            </ion-col>
+        </ion-row>
+        <ion-row class="listPart2">
+            <ion-col class="withdrawals" text-center (click)="gotoWithdrawCashPage()">
+                <span>
+                    <img src="assets/img/withdrawals.png">
+                    <mark *ngIf="showExchangeOrdert">{{orderCount.exchangeOrderCount}}</mark>
+                </span>
+                <span>提现</span>
+            </ion-col>
+            <ion-col class="digitalAsset" text-center (click)="gotoScanPage()">
+                <span>
+                    <img src="assets/img/scan.png">
+                </span>
+                <span>扫一扫</span>
+            </ion-col>
+            <ion-col class="share" text-center (click)="gotoShareFriendPage()">
+                <img src="assets/img/share.png"><br/>
+                <span>分享</span>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

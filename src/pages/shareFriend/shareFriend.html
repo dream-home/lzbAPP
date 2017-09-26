@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title center>分享好友</ion-title>
+        <ion-buttons end class="saveCode">
+            <button ion-button icon-only (click)="saveCode()">保存二维码</button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-row class="share_code">
+        <ion-col text-center>
+            <div class="share_cont">
+                <img src="assets/img/shareBack.png"/>
+                <div class="qrCode">
+                    <img src="{{qrCode}}"/>
+                </div>
+                <div class="share_txt">
+                    <span>扫描二维码即可分享好友呦</span>
+                </div>
+            </div>
+        </ion-col>
+    </ion-row>
+    <ion-row class="copyAddress">
+        <ion-col text-center>
+            <span (click)="copyAddress()">复制量子钱包下载地址</span>
+        </ion-col>
+    </ion-row>
+</ion-content>
+
+<ion-footer>
+    <ion-row class="shareRecord">
+        <ion-col text-center>
+            <span (click)="goShareRecord()">分享记录</span>
+        </ion-col>
+    </ion-row>
+</ion-footer>

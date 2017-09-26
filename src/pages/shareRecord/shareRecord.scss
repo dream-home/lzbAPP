@@ -1,0 +1,81 @@
+page-shareRecord{
+    .shareRecord{
+        padding:0;
+        .shareRecord_info{
+            background:#fff;
+            ion-col{
+                padding:10px 5px 10px 10px;
+                .shareRecord_img{
+                    position: relative;
+                    width:55px;
+                    height:55px;
+                    float: left;
+                    .shareRecord_imgPath{
+                        height:55px;
+                        width:55px;
+                        margin-top:2px;
+                        border-radius:50%;
+                    }
+                    mark{
+                        position:absolute;
+                        bottom:-2px;
+                        right:0;
+                        width:15px;
+                        height: 15px;
+                        line-height: 12px;
+                        text-align: center;
+                        background:none;
+                        img{
+                            width:100%;
+                            height:100%;
+                        }
+                    }
+                }
+                .shareRecord_cont{
+                    position: relative;
+                    float: left;
+                    width:160px;
+                    height:60px;
+                    margin-left:10px;
+                    span:nth-child(1){
+                        display: block;
+                        font-size: 16px;
+                        margin-top:12px;
+                    }
+                    span:nth-child(2){
+                        display: block;
+                        font-size: 12px;
+                        color:#999;
+                        margin-top:3px;
+                    }
+                }
+                .shareRecord_level{
+                    position: relative;
+                    float: right;
+                    height:60px;
+                    .lv_vip{
+                        background: #FF4445;
+                        color:#fff;
+                        padding:2px 8px;
+                        border-radius: 5px;
+                        display: block;
+                        margin-top:20px;
+                    }
+                    .lv_ordinary{
+                        background: #6E6E6E;
+                        color:#fff;
+                        padding:2px 8px;
+                        border-radius: 5px;
+                        display: block;
+                        margin-top:20px;
+                    }
+                }
+            }
+        }
+    }
+    .null_record{
+        padding:30px 5px;
+        font-size: 16px;
+        color:#999;
+    }
+}

@@ -1,0 +1,187 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>提现订单详情</ion-title>
+       <ion-buttons end>
+              <button ion-button icon-only (click)="gotoWithdrawCashRecordPage()">
+                提现记录
+              </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-list style="margin-top: 10px;" *ngIf="infos!=null" class="borderlist">
+		 <ion-item>
+		 	<div class="recordName" style="border-bottom: 1px solid #e5e5e5;padding-bottom: 10px;">
+			 	<b>提现</b>
+			 	<span class="recordTime">{{utils.formatDate(infos.createTime,'yyyy-MM-dd hh:mm:ss')}}</span>
+		 	</div>
+		 	<div class="recordName">订单号：{{infos.orderId}}</div>
+		 	<!-- 未选择充值用户 -->
+		 	<div class="recordName" *ngIf="infos.transactionState<20">未选择充值用户<span>{{infos.amount}} RMB</span></div>
+		 	<div class="recordTime" *ngIf="infos.transactionState<20">
+		 		订单创建中<button ion-button color="danger" outline small style="height:20px; float: right;" (click)="del(infos.id)">取消</button>
+		 	</div>
+		 	<!-- 成功匹配充值用户 -->
+		 	<div class="recordName" *ngIf="infos.transactionState>20">打款人：{{infos.targetNikeName}}<span>{{infos.amount}} RMB</span></div>
+		 	<div class="recordTime" *ngIf="infos.transactionState>20">成功匹配充值用户<span>实际应付金额：{{infos.rmbAmount}} RMB</span></div>
+		 	<div class="recordTime" *ngIf="infos.transactionState>20">
+		 		<button ion-button color="danger" outline small style="height:20px; float: right;" (click)="call(infos.targetMobile)">联系他</button>
+		 	</div>
+		 </ion-item>
+	</ion-list>
+	<div class="infos"  *ngIf="infos!=null">
+		<ion-grid no-padding style="">
+			<ion-row  class="active"> 
+		        <ion-col>
+					<div style="margin-top: -8px;" class="havaicon">
+						你创建了提现订单
+						<span style="color: #fff;">
+							<ion-icon name="checkmark" style="margin-top: -2px;font-size: 22px;"></ion-icon>
+						</span>
+					</div>
+		        	<p no-margin>收款人：{{infos.name}}</p>
+		        	<div>收款银行：{{infos.bankName}}</div>
+		        	<div>收款账号：{{infos.bankCard}}</div>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row class="active">
+		        <ion-col >
+		        		<div no-margin>
+		        			冻结提现用户{{infos.amount}}余额
+      						<span style="color: #fff;">
+      							<ion-icon name="checkmark" style="margin-top: -2px;font-size: 22px;"></ion-icon>
+      						</span>
+		        		</div>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row *ngIf="infos.historyState==null">
+		        <ion-col>
+		        	<div >
+						请选择打款人
+						<span >
+						</span>
+					</div>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row *ngIf="infos.historyState>=10" class="active">
+		        <ion-col>
+		        	<div>你选择了【{{infos.targetNikeName}}】为打款人
+      						<span style="color: #fff;">
+      						    <ion-icon name="checkmark" style="margin-top: -2px;font-size: 22px;"></ion-icon>
+      						</span>
+              </div>
+    					<p no-margin>
+    				      打款人：{{infos.targetName}}
+    					</p>
+		        	<div>打款银行：{{infos.targetBankName}}</div>
+		        	<div>打款账号：{{infos.targetBankCard}}</div>
+		        	<!-- <div>打款人备注：{{infos.targetDescription}}</div> -->
+		        </ion-col>
+		    </ion-row>
+		    <ion-row *ngIf="infos.targetHistoryState<20">
+		        <ion-col >
+		        	<div>
+						等待打款人向您线下打款
+						<span >
+						</span>
+					</div>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row *ngIf="infos.targetHistoryState<20">
+		        <ion-col >
+		        	<div>
+      						等待打款人确认打款
+      						<span >
+      						</span>
+    					</div>
+		        </ion-col>
+		    </ion-row>
+		     <ion-row class="active" *ngIf="infos.targetHistoryState>20" >
+		        <ion-col >
+		        	<div>
+    							打款人已经向您线下打款
+      						<span style="color: #fff;">
+      					      <ion-icon name="checkmark" style="margin-top: -2px;font-size: 22px;"></ion-icon>
+      						</span>
+					    </div>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row class="active" *ngIf="infos.targetHistoryState>20">
+		        <ion-col >
+  		        	<div>
+        						打款人已经确认打款
+        						<span style="color: #fff;">
+        							<ion-icon name="checkmark" style="margin-top: -2px;font-size: 22px;"></ion-icon>
+        						</span>
+      					</div>
+		        </ion-col>
+		    </ion-row>
+
+		    <ion-row *ngIf="infos.targetHistoryState<40">
+		        <ion-col >
+		        	<div >
+    						等待您确认收款
+    						<span >
+    						</span>
+    					</div>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row *ngIf="infos.targetHistoryState<40">
+		        <ion-col >
+		        	<div >
+    						提现成功
+    						<span >
+    						</span>
+    					</div>
+		        </ion-col>
+		    </ion-row>
+
+		     <ion-row class="active" *ngIf="infos.targetHistoryState>40">
+		        <ion-col >
+  		        	<div >
+        						您已经确认收款
+        						<span style="color: #fff;">
+        							<ion-icon name="checkmark" style="margin-top: -2px;font-size: 22px;"></ion-icon>
+        						</span>
+      					</div>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row class="active" *ngIf="infos.transactionState==60">
+		        <ion-col >
+  		        	<div >
+        						提现成功
+        						<span style="color: #fff;">
+        							<ion-icon name="checkmark" style="margin-top: -2px;font-size: 22px;"></ion-icon>
+        						</span>
+      					</div>
+		        </ion-col>
+		    </ion-row>
+		    <ion-row *ngIf="infos.transactionState==70" class="active">
+		        <ion-col >
+  		        	<div >
+        						交易失败
+        						<span style="color: #fff;">
+        							<ion-icon name="checkmark" style="margin-top: -2px;font-size: 22px;"></ion-icon>
+        						</span>
+      					</div>
+		        </ion-col>
+		    </ion-row>
+		</ion-grid>
+	</div>
+	<div style="height: 60px;"></div>
+</ion-content>
+<ion-footer  *ngIf="infos!=null&&infos.transactionState<20">
+   		 <button ion-button full style="margin: 0; font-size:15px;font-weight:600;" (click)="gotoSelectPayerPage(infos.id,infos.amount,infos.bankName)">选择打款人</button>
+</ion-footer>
+
+<ion-footer *ngIf="infos!=null&&infos.targetTransactionState==50&&infos.transactionState<60">
+   		 <button ion-button full style="margin: 0; font-size:15px;font-weight:600;" (click)="confirm($event,infos.id)">
+   		 	确认收款
+   		 </button>
+</ion-footer>
+

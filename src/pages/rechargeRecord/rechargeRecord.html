@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>充值记录</ion-title>
+    </ion-toolbar>
+     <ion-grid class="collectionRecord" no-padding>
+        <ion-row class="record_head">
+            <ion-col col-5 text-center>充值账户</ion-col>
+            <ion-col col-3 text-center>充值金额</ion-col>
+            <ion-col col-4 text-center>充值时间</ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="collectionRecord" no-padding *ngIf="items != null && items != ''">
+        <ion-list class="record_list">
+            <ion-row class="record_info" *ngFor="let item of items">
+                <ion-col col-5 text-center class="headImg">
+                    <img src="assets/img/avatar.png" *ngIf="item.imgPath==null"/>
+                    <img src="{{imgUrl+item.imgPath}}" *ngIf="item.imgPath!=null"/>
+                    <span>{{item.nickName}}</span>
+                </ion-col>
+                <ion-col col-3 text-center>¥{{item.amount}}</ion-col>
+                <ion-col col-4 text-center>{{this.utils.formatDate(item.createTime,'yyyy-MM-dd hh:mm')}}</ion-col>
+            </ion-row>
+        </ion-list>
+        <div style=" text-align: center; padding-bottom:32px; font-size: 14px; font-weight: 500; color: #666;letter-spacing: 2px;">
+            <span *ngIf="showScroll">
+                下拉加载更多数据...
+            </span>
+            <span *ngIf="!showScroll">
+                已经全部加载完了...
+            </span>
+
+        </div>
+    </ion-grid>
+    <ion-list class="null_list" *ngIf="items == null || items == ''">
+            <ion-row>
+                <ion-col text-center>
+                    没有找到相关记录
+                </ion-col>
+            </ion-row>
+        </ion-list>
+       
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="showScroll">
+            <ion-infinite-scroll-content ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

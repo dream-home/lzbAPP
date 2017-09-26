@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title center>找回密码</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="forgetPwd">
+        <ion-row class="telPhone">
+            <ion-col>
+                <span class="content_telPhone">手机/UID</span>
+                <ion-input class="input_telPhone" type="text" maxlength="11" bindon-ngModel="telPhone" placeholder="输入手机号/UID"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="msgCode">
+            <ion-col>
+                <span class="content_msgCode">验&nbsp;&nbsp;证&nbsp;&nbsp;码</span>
+                <ion-input class="input_msgCode" type="text" maxlength="6" bindon-ngModel="msgCode" placeholder="填写收到的验证码"></ion-input>
+                <button (click)="sendMsgCode()" *ngIf="globalData.forgetPwdTimeNum<=0" [disabled]="msgButton">获取验证码</button>
+                <button *ngIf="globalData.forgetPwdTimeNum>0" style="color:#999;">{{globalData.forgetPwdTimeNum}}秒</button>
+            </ion-col>
+        </ion-row>
+        <ion-row class="newPassword">
+            <ion-col>
+                <span class="content_newPassword">新&nbsp;&nbsp;密&nbsp;&nbsp;码</span>
+                <ion-input class="input_newPassword" type="text" bindon-ngModel="newPassword" maxlength="32" placeholder="请设置新的密码"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="btn_submit">
+            <ion-col text-center>
+                <button (click)="submitFindPwd()" >确定</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

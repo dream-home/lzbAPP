@@ -1,0 +1,62 @@
+page-withdrawCashCenter{
+ 
+   .modular{
+	   	background-color: #fff;
+	   	border-bottom: 1px solid #e5e5e5;
+	   	border-top: 1px solid #e5e5e5;
+   }
+  
+   .litte_title{
+	   	 font-size: 14px;
+	   	 line-height: 25px;
+	   	border-bottom:1px solid #e5e5e5;
+	   	 font-weight: 500;
+	   	 margin-bottom: 3px;
+   }
+   .right_span{
+      float: right;
+   }
+   .modular div{
+      line-height: 25px;
+   }
+   .hui_div{
+      color: #888;
+      font-size: 13px;
+      clear:both;
+   }
+   .stylePre{
+      width: 80px;
+      font-weight: 500;
+      border: 1px solid #fd8832;
+      border-radius: 2px;
+      background-color:#fff;
+      color: #fd8832;
+      font-size: 14px;
+      line-height: 25px;
+   }
+   .styleNext{
+     width: 80px;
+      font-weight: 500;
+      border: 1px solid #fd8832;
+      border-radius: 2px;
+      background-color:#fd8832;
+      color: #fff;
+      font-size: 14px;
+      line-height: 25px;
+   }
+
+   .creditimg{
+      width:12px;
+      vertical-align: middle;
+   }
+    .null_list{
+            padding:30px 5px;
+            font-size: 16px;
+            color:#999;
+        }
+
+   .headImg img{
+      border-radius:100%;
+      margin-top:10px;width: 100%;
+   }
+}

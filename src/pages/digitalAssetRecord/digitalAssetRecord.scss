@@ -1,0 +1,71 @@
+page-digitalAssetRecord{
+    .segment-ios .segment-button {
+          border-width:0;
+          color: #333;
+          background-color: #fff;
+          font-size: 16px;
+          font-weight:500;
+          line-height:normal;
+          height:auto;
+          padding:10px 0;
+           border-bottom: 1px solid #fff;
+        }
+
+    .segment-ios .segment-button.segment-activated {
+          color: #ff4444;
+          background-color: #fff;
+          border-color:#ff4444;
+          border-bottom: 1px solid #ff4444;
+          border-radius: 0;
+        }
+    .item-ios{
+        background: #fff;
+    }
+    .list-ios .item-block .item-inner {
+      border-bottom: 0;
+    }
+
+   
+    .list-ios ion-item-options {
+      border-bottom: 0;
+    }
+    .list-ios > .item-block:first-child {
+      border-top: 0;
+    }
+
+    .list-ios > .item-block:last-child,
+    .list-ios > .item-wrapper:last-child .item-block {
+      border-bottom: 0;
+    }
+    .recordName{
+        font-size: 15px;
+         font-weight:600;
+        span{
+            float: right;
+            
+
+        }
+    }
+    .recordTime{
+        color: #868686;
+        font-size: 13px;
+       
+    }
+
+    .borderlist{
+     border-bottom:1px solid #e5e5e5;
+      border-top:1px solid #e5e5e5;
+    }
+
+    .input-wrapper{
+      border-bottom:1px solid #e5e5e5;
+    }
+    .borderlist ion-item:last-child .input-wrapper{
+      border-bottom:0;
+    }
+     .null_list{
+            padding:30px 5px;
+            font-size: 16px;
+            color:#999;
+        }
+}

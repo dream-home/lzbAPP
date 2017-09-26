@@ -1,0 +1,14 @@
+{
+  "LoginPage_btn": "Login",
+  "HOME": "MyHome",
+  "LEARN": "LEARN",
+  "FOUND": "FOUND",
+  "MY": "MY",
+  "CANCEL": "CANCEL",
+  "OK": "OK",
+  "NEIRONG":"This starter project comes with simple tabs-based layout for apps that are going to primarily use a Tabbed UI.",
+  "WODENEIRONG":"Take a look at the  directory to add or change tabs,update any existing page or create new pages.",
+  "TAB_HOME":"HOME",
+  "TAB_ABOUT":"About",
+  "TAB_CONTACT":"Contact"
+}

@@ -1,0 +1,120 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>转账</ion-title>
+        <ion-buttons end>
+              <button ion-button style="font-size:14px;" (click)="goTransferRecord()">转账记录</button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="transferMoney" no-padding *ngIf="!isShowNext">
+        <ion-row class="opposingAccount">
+            <ion-col>
+                <span class="content_account">对方账户</span>
+                <ion-input class="input_account" type="text" maxlength="11" bindon-ngModel="opposingAccount" placeholder="输入手机号/UID"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="btn_next">
+            <ion-col text-center>
+                <button (click)="goNext()">下一步</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="transferInfo" no-padding *ngIf="isShowNext">
+        <ion-row class="userInfo">
+            <ion-col text-center>
+                <div>
+                    <img src="assets/img/avatar.png" *ngIf="!receiverInfo.imgPath">
+                    <img src="{{imgUrl+receiverInfo.imgPath}}" *ngIf="receiverInfo.imgPath">
+                    <mark *ngIf="receiverInfo.userType==20">
+                        <img src="assets/img/vipSign.png"/>
+                    </mark>
+                </div>
+                <span>{{receiverInfo.nickName}}（{{receiverInfo.uid}}）</span>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="transferAmount" no-padding *ngIf="isShowNext">
+        <ion-row class="content_amount">
+            <ion-col>
+                <span>转账金额</span>
+            </ion-col>
+        </ion-row>
+        <ion-row class="input_amount">
+            <ion-col>
+                <mark>￥</mark>
+                <ion-input type="number" bindon-ngModel="transferAmount" placeholder="0"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row class="btn_submit">
+            <ion-col>
+                <button (click)="closeorshow(true)" [disabled]="loadingButton">确认转账</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="payPage" *ngIf="showPayPage">
+      	<div class="alert_pwd">
+        		<ion-grid class="pwd">
+          			<ion-row class="pwd_title">
+                    <ion-col text-center>
+                    	  <span class="close" (click)="closeorshow(false)">×</span>
+                        请输入支付密码
+                    </ion-col>
+      	        </ion-row>
+      	        <ion-row class="payForUser">
+      	            <ion-col text-center>向({{receiverInfo.nickName}})支付</ion-col>
+      	        </ion-row>
+      	        <ion-row class="payForAmount">
+      	            <ion-col text-center>￥{{utils.toDecimal(transferAmount)}}</ion-col>
+      	        </ion-row>
+      	        <ion-row>
+      	            <ion-col text-center>
+        	            	<div class="pwdnum" (click)="closeNumset(true)">
+          	            		<span><b *ngIf="index>-1"></b></span>
+          	            		<span><b *ngIf="index>0"></b></span>
+          	            		<span><b *ngIf="index>1"></b></span>
+          	            		<span><b *ngIf="index>2"></b></span>
+          	            		<span><b *ngIf="index>3"></b></span>
+          	            		<span><b *ngIf="index>4"></b></span>
+        	            	</div>
+      	            </ion-col>
+      	        </ion-row>
+                <ion-row class="btn_part">
+                    <ion-col text-center (click)="closeorshow(false)">取消</ion-col>
+                    <ion-col text-center (click)="submitTransfer()">确认</ion-col>
+                </ion-row>
+        		</ion-grid>
+        		<ion-grid class="numset" no-padding *ngIf="show">
+      	        <ion-row no-padding class="closeNumset">
+      	            <ion-col text-center>
+    	            	    <ion-icon name="arrow-down" (click)="closeNumset(false)"></ion-icon>
+      	            </ion-col>
+      	        </ion-row>
+      	        <ion-row class="keyNum" no-padding *ngFor="let item of nums">
+      	            <ion-col text-center col-4 *ngFor="let it of item" (click)="writePwd(it)">
+      	            	  <button ion-button color="light" outline>{{it}}</button>
+      	            </ion-col>
+      	        </ion-row>
+      	        <ion-row class="keyOther" no-padding>
+      	            <ion-col text-center col-4 >
+      	            	  <button ion-button color="light" outline class="hui_btn">&nbsp;</button>
+      	            </ion-col>
+      	            <ion-col text-center col-4 (click)="writePwd(0)">
+      	            	  <button ion-button color="light" outline >0</button>
+      	            </ion-col>
+      	            <ion-col text-center col-4 (click)="writePwd(-1)">
+    	            	    <button ion-button color="light" outline class="hui_btn">
+  	            		         <ion-icon name="ios-backspace-outline"></ion-icon>
+      					        </button>
+      	            </ion-col>
+      	        </ion-row>
+        		</ion-grid>
+      	</div>
+    </div>
+</ion-content>

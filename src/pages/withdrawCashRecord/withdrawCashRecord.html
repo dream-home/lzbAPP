@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>提现记录</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="collectionRecord" no-padding>
+        <ion-row class="record_head">
+            <ion-col col-4 text-center>提现金额</ion-col>
+            <ion-col col-4 text-center>账户余额</ion-col>
+            <ion-col col-4 text-center>提现时间</ion-col>
+        </ion-row>
+    <div  *ngIf="items != null && items != ''">
+        <ion-list class="record_list">
+            <ion-row class="record_info" *ngFor="let i of items">
+                <ion-col col-4 text-center>
+                   ¥{{i.amount}}
+                </ion-col>
+                <ion-col col-4 text-center>¥{{i.payeeBalance}}</ion-col>
+                <ion-col col-4 text-center>{{this.utils.formatDate(i.createTime,'yyyy-MM-dd hh:mm')}}</ion-col>
+            </ion-row>
+           
+        </ion-list>
+        <div style=" text-align: center; padding-bottom:32px; font-size: 14px; font-weight: 500; color: #666;letter-spacing: 2px;">
+            <span *ngIf="showScroll">
+                下拉加载更多数据...
+            </span>
+            <span *ngIf="!showScroll">
+                已经全部加载完了...
+            </span>
+
+        </div>
+    </div>
+    </ion-grid>
+     <ion-list class="null_list" *ngIf="items == null || items == ''">
+            <ion-row>
+                <ion-col text-center>
+                    没有找到相关记录
+                </ion-col>
+            </ion-row>
+        </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="showScroll">
+         <ion-infinite-scroll-content ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

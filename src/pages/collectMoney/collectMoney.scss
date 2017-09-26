@@ -1,0 +1,33 @@
+page-collectMoney{
+    .collectionRecord{
+        button{
+            font-size:14px;
+            margin-top:5px;
+        }
+    }
+    .collectCode{
+        width:90%;
+        margin:20px auto 0 auto;
+        background: #fff;
+        border-radius: 8px;
+        .collectCode_tip{
+            text-align:center;
+            padding-top:30px;
+        }
+        .collectCode_code{
+            text-align:center;
+            padding-bottom:10px;
+            height:320px;
+            img{
+                margin:0 auto;
+            }
+        }
+    }
+    .collectionRecord{
+        background:#fd8832;
+        color:#fff;
+        ion-col{
+            padding:22px 0;
+        }
+    }
+}

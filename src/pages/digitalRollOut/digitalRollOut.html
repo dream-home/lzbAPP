@@ -1,0 +1,109 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>转出</ion-title>
+   		<ion-buttons end>
+              <button ion-button icon-only style="font-size: 14px;" (click)="gotoDigitalAssetRecordPage()">
+               记录
+              </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+	 <ion-list no-padding no-margin>
+            <ion-row class="scoreExchang">
+                <ion-col>
+                    <span>量子币</span>
+                    <input bindon-ngModel="balance" placeholder="输入转出的数量(有小数保留2位)" type="number" clearInput no-padding style="border:0;background: #fff;" [disabled]="inputNum"/>
+                </ion-col>
+            </ion-row>
+            <ion-row class="scoreExchang" style="border-bottom:1px solid #e5e5e5;">
+                <ion-col style="border-top:1px solid #e5e5e5;">
+                    <span>转出地址</span>
+                    <input  bindon-ngModel="accountName" placeholder="请输入手机号/UID/钱包地址" type="text" clearInput no-padding style="border:0;overflow: auto; background: #fff;" [disabled]="inputNum"/>
+                </ion-col>
+            </ion-row>
+            <ion-row class="btn_login" text-center>
+	            <ion-col>
+	                <button (click)="closeorshow(true)"  [disabled]="inputNum">确定</button>
+	            </ion-col>
+	        </ion-row>
+     </ion-list>
+</ion-content>
+<div class="payPage" [style.bottom]="bottoem_set+'%'">
+	<div style="width: 100%;height: 100%;overflow:hidden;position: relative;">
+		<ion-grid class="pwd">
+			<ion-row style="border-bottom: 1px solid #fd8832;">
+	            <ion-col text-center style="line-height: 30px; font-size: 16px;">
+	            	<span class="close" (click)="closeorshow(false)">
+	            		X
+	            	</span>
+	              请输入支付密码
+	            </ion-col>
+	        </ion-row>
+	        <ion-row>
+	            <ion-col text-center style="margin-top:10px; color: #333;">
+	            	量子币转出数量:
+	            </ion-col>
+	        </ion-row>
+	        <ion-row>
+	            <ion-col text-center style="color:#fd8832; font-size:20px;">
+	            	{{balance}}
+	            </ion-col>
+	        </ion-row>
+	        <ion-row>
+	            <ion-col text-center>
+	            	<div class="pwdnum" (click)="closeNumset(true)">
+	            		<span><b *ngIf="index>-1"></b></span>
+	            		<span><b *ngIf="index>0"></b></span>
+	            		<span><b *ngIf="index>1"></b></span>
+	            		<span><b *ngIf="index>2"></b></span>
+	            		<span><b *ngIf="index>3"></b></span>
+	            		<span><b *ngIf="index>4"></b></span>	
+	            	</div>
+	            </ion-col>
+	        </ion-row>
+	         <ion-row>
+	            <ion-col text-right style="color:#f53d3d;">
+	            	<span (click)="gotoForgetPayPwdPage()">忘记密码？</span>&nbsp;&nbsp;&nbsp;
+	            </ion-col>
+	        </ion-row>
+		</ion-grid>
+		<ion-grid class="numset" no-padding *ngIf="show">
+	        <ion-row no-padding>
+	            <ion-col text-center style="padding: 5px 0; font-size: 20px;color: #ccc;">
+	            	 <ion-icon name="arrow-down" (click)="closeNumset(false)"></ion-icon>
+	            </ion-col>
+	        </ion-row>
+	        
+	        <ion-row class="keyNum" no-padding style="color:#f53d3d; font-size:20px;" *ngFor="let item of nums">
+	            <ion-col text-center  col-4 *ngFor="let it of item" (click)="writePwd(it)">
+	            	<button ion-button color="light" outline>{{it}}</button>
+	            </ion-col>
+	        </ion-row>
+	       
+	        <ion-row class="keyOther" no-padding style="color:#f53d3d; font-size:20px;">
+	            <ion-col text-center  col-4 >
+	            	<button ion-button color="light" outline class="hui_btn">&nbsp;</button>
+	            </ion-col>
+	            <ion-col text-center  col-4 (click)="writePwd(0)">
+	            	<button ion-button color="light" outline >0</button>
+	            </ion-col>
+	            <ion-col text-center  col-4 (click)="writePwd(-1)">
+	            	<button ion-button color="light" outline class="hui_btn">
+	            		<ion-icon name="ios-backspace-outline"></ion-icon>
+					</button>
+	            </ion-col>
+	           
+	        </ion-row>
+	         
+		</ion-grid>
+
+
+		
+	</div>
+</div>

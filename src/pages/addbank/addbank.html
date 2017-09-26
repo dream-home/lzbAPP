@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      添加银行卡
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+	<ion-label><span style="color:red">*</span><span style="color:red;font-size:1.1rem;">请绑定持卡人本人的银行卡,姓名一经填写不准修改</span></ion-label>
+	<ion-list style="background:#fff; width: 100%" >
+        <ion-item class="one" >
+            <ion-label fixed><span style="color:red">*</span>持卡人姓名</ion-label>
+            <ion-input  type="text"  maxlength="20"  bindon-ngModel="addBankName" [disabled]="userInfo.name !=null && userInfo.name!='' "      placeholder="请输入持卡人本人姓名"></ion-input>
+            
+        </ion-item>
+
+        <ion-item class="one">
+        	
+			<ion-label style="display: none">开户银行</ion-label>
+            <ion-label fixed><span style="color:red">*</span>开户银行</ion-label>
+            <!--  <ion-input maxlength="15" type="text"  placeholder="请输入开户银行"></ion-input> -->
+			<ion-select [(ngModel)]="addBankTypeId" placeholder="请输入开户银行"  okText="确定" cancelText="返回">
+			    <ion-option  *ngFor="let b of banks" value="{{b.id}}">{{b.bankName}}</ion-option>
+			    
+			</ion-select>
+
+        </ion-item>
+        <ion-item class="one">
+            <ion-label fixed><span style="color:red">*</span>银行卡号</ion-label>
+            <ion-input maxlength="20" type="text"   bindon-ngModel="addBankCard"  placeholder="请输入开户银行的卡号"></ion-input>
+        </ion-item>
+        <ion-item class="one">
+            <ion-label fixed>开户支行</ion-label>
+            <ion-input maxlength="15" type="text"  bindon-ngModel="addBankBranch"   placeholder="请输入开户银行的支行分行"></ion-input>
+        </ion-item>
+        
+    </ion-list>
+    <ion-label style="margin-top: -15px;margin-left: 10px"><ion-checkbox [(ngModel)]="addBankDefaultState" style="argin-bottom: 2px;vertical-align: text-bottom;"></ion-checkbox><span style="color:#C0C0C0;font-size:1.35rem; text-align: center;">设为默认银行卡</span></ion-label>
+    <div padding>
+      <button ion-button  (click)="submitData()" block>确定</button>
+    </div>
+</ion-content>

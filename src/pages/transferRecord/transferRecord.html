@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>转账记录</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="transferRecord" no-padding>
+        <ion-row class="record_head">
+            <ion-col col-5 text-center>收款账户</ion-col>
+            <ion-col col-4 text-center>转账金额</ion-col>
+            <ion-col col-3 text-center>转账时间</ion-col>
+        </ion-row>
+        <ion-list class="record_list" *ngIf="recordInfo != null || recordInfo != ''">
+            <ion-row class="record_info" *ngFor="let rifo of recordInfo">
+                <ion-col col-5 text-center>
+                    <img src="assets/img/avatar.png" *ngIf="!rifo.payeeImgPath">
+                    <img src="{{imgUrl+rifo.payeeImgPath}}" *ngIf="rifo.payeeImgPath">
+                    <span>{{rifo.payeeNike}}</span>
+                </ion-col>
+                <ion-col col-4 text-center>￥{{utils.toDecimal(rifo.amount)}}</ion-col>
+                <ion-col col-3 text-center>{{utils.formatDate(rifo.createTime,'yyyy-MM-dd hh:mm:ss')}}</ion-col>
+            </ion-row>
+        </ion-list>
+        <ion-list class="null_list" *ngIf="recordInfo == null || recordInfo == ''">
+            <ion-row>
+                <ion-col text-center>
+                    没有找到相关记录
+                </ion-col>
+            </ion-row>
+        </ion-list>
+    </ion-grid>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-infinite-scroll *ngIf="showScroll" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

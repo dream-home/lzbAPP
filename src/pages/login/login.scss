@@ -1,0 +1,111 @@
+page-login{
+    ion-content{
+        background: #fff !important;
+        .logo{
+            padding:70px 0 50px 0;
+            img{
+                width:120px;
+                border-radius: 10px;
+                box-shadow: 0px 0px 20px #e5e5e5;
+            }
+        }
+        .userName_passWord{
+            .userName{
+                height:40px;
+                line-height: 30px;
+                ion-col{
+                    border-bottom:1px #e5e5e5 solid;
+                    .img_userName{
+                        height:18px;
+                        float: left;
+                        margin-top:5px;
+                    }
+                    .content_userName{
+                        height:100%;
+                        float: left;
+                        margin-left:8px;
+                        font-size: 14px;
+                    }
+                    .input_userName{
+                        height:100%;
+                        width:auto;
+                        float: left;
+                        margin-left:3px;
+                        .text-input-ios{
+                            margin:0 0 0 10px;
+                        }
+                    }
+                    .clearInput{
+                        float: right;
+                        background: none;
+                        font-size: 26px;
+                        color:#ccc;
+                    }
+                }
+            }
+            .passWord{
+                height:40px;
+                line-height: 30px;
+                margin-top:20px;
+                ion-col{
+                    border-bottom:1px #e5e5e5 solid;
+                    .img_passWord{
+                        height:18px;
+                        float: left;
+                        margin-top:5px;
+                    }
+                    .content_passWord{
+                        height:100%;
+                        float: left;
+                        margin-left:8px;
+                        font-size: 14px;
+                    }
+                    .input_passWord{
+                        height:100%;
+                        width:auto;
+                        float: left;
+                        margin-left:3px;
+                        .text-input-ios{
+                            margin:0 0 0 12px;
+                        }
+                    }
+                    .show_passWord{
+                        float: right;
+                        height:15px;
+                        margin-top:5px;
+                    }
+                    .hide_passWord{
+                        float: right;
+                        width:25px;
+                        margin-top:12px;
+                    }
+                }
+            }
+            .register_forget{
+                margin-top:10px;
+                .register{
+                    color:red;
+                    font-size: 12px;
+                }
+                .forget{
+                    color:#fd8832;
+                    font-size: 12px;
+                }
+            }
+            .btn_login{
+                margin-top:50px;
+                ion-col{
+                    button{
+                        background:#fd8832;
+                        color:#fff;
+                        width:100%;
+                        height:40px;
+                        line-height: 40px;
+                        font-size: 14px;
+                        border-radius: 3px;
+                    }
+                }
+            }
+        }
+    }
+}

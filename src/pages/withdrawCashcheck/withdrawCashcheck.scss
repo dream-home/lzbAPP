@@ -1,0 +1,81 @@
+page-withdrawCashcheck{
+   
+    .item-ios{
+        background: #fff;
+        padding-left:10px;
+    }
+    ion-label{
+      overflow:visible;
+    }
+    .list-ios .item-block .item-inner {
+      border-bottom: 0;
+    }
+
+   
+    .list-ios ion-item-options {
+      border-bottom: 0;
+    }
+    .list-ios > .item-block:first-child {
+      border-top: 0;
+    }
+
+    .list-ios > .item-block:last-child,
+    .list-ios > .item-wrapper:last-child .item-block {
+      border-bottom: 0;
+    }
+    .recordName{
+        font-size: 13px;
+         font-weight:500;
+         padding-bottom:5px;
+       border-bottom: 0.55px solid #e5e5e5;
+       color: #010101;
+
+    }
+    .recordTime{
+        color: #868686;
+        font-weight: normal;
+        font-size: 13px;
+        text-align: right;
+        float:right;
+      
+    }
+  .recordName b{
+    font-weight: normal;
+    font-size: 11px;
+    display: inline-block;
+    background: #ff4444;
+    color: #fff;
+    margin-right: 5px;
+     float: right;
+     border-radius: 2px;
+     padding:3px 5px;
+     margin-top: -5px;
+
+  }
+  
+  ion-item .recordName:last-child{
+    border-top:1px solid #e5e5e5;
+  }
+  .list-ios {
+    margin-bottom:10px;
+  }
+  .userinfo{
+    color:#ff4444;
+    font-size: 13px;
+    font-weight:500;
+    line-height: 20px;
+    span{
+        float: right;
+        color: #010101;
+       }
+  }
+  .borderlist{
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+  }
+    .null_list{
+       padding:30px 5px;
+            font-size: 16px;
+            color:#999;
+        }
+}

@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>充值</ion-title>
+   		<ion-buttons end>
+              <button ion-button icon-only style="transform:rotate(90deg);" (click)="showMune(true)">
+                <ion-icon name="more"></ion-icon>
+              </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content (click)="showMune(false)">
+	<!-- 右上角三个点的菜单展示内容 -->
+	<div class="mune_right" *ngIf="menuflag">
+		<span class="triangle_up"></span>
+		<ion-list>
+			<button (click)="gotoUnfinishOrderPage(false)">
+			    未完成订单
+			</button> 
+			<button (click)="gotoCheckOrderPage(false)">
+			    确认打款<span class="numSure" *ngIf="orderCount>0">{{orderCount}}</span>
+			</button> 
+			<button (click)="gotoFinishOrderPage()">
+			    已完成订单
+			</button> 
+			<button (click)="gotoRechargeRecordPage(false)">
+				充值记录
+			</button> 
+			<button (click)="gotoVoucherCenterPage(false)">
+				充值中心
+			</button> 
+		</ion-list>
+	</div>
+	<!-- 选择充值数额 -->
+	<ion-grid class="modular">
+		 <ion-row>
+		    <ion-col class="litte_title">选择充值数额</ion-col>
+		 </ion-row>
+		 <ion-row text-center style="margin-top: 2px;">
+		    <ion-col col-4>
+		    	<button ion-button class="{{pre_styleNo==0 ? 'styleNext':'stylePre'}}" (click)="select(0,1000)">1000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button class="{{pre_styleNo==1 ? 'styleNext':'stylePre'}}" (click)="select(1,3000)">3000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button  class="{{pre_styleNo==2 ? 'styleNext':'stylePre'}}" (click)="select(2,5000)">5000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button  class="{{pre_styleNo==3 ? 'styleNext':'stylePre'}}" (click)="select(3,10000)">10000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button  class="{{pre_styleNo==4 ? 'styleNext':'stylePre'}}" (click)="select(4,30000)">30000</button>
+		    </ion-col>
+		    <ion-col col-4>
+		    	<button ion-button  class="{{pre_styleNo==5 ? 'styleNext':'stylePre'}}" (click)="select(5,50000)">50000</button>
+		    </ion-col>
+		 </ion-row>
+	</ion-grid>
+	<!-- 绑定银行卡 -->
+	<ion-grid class="modular" style="margin-top: 10px;" *ngIf="banks!=null">
+		 <ion-row>
+		    <ion-col class="litte_title" (click)="gotoBankPage()">绑定的银行卡
+		    	<ion-icon name="arrow-forward" style="float: right; margin-right: 15px; line-height: 25px;color:#e5e5e5; "></ion-icon>
+		    </ion-col>
+		 </ion-row>
+		 <ion-row >
+		 	<ion-col class="bankInfo">
+		    	<p>{{banks.name}}</p>
+		    	<p>{{banks.bankName}}</p>
+		    	<p>银行卡号：{{banks.bankCard}}</p>
+		    </ion-col>
+		 </ion-row>
+	</ion-grid>
+	<!-- 添加银行卡 -->
+	<ion-grid class="modular" style="margin-top: 10px;" *ngIf="banks==null">
+		 <ion-row text-center (click)="gotoAddbankPage()">
+		    <ion-col style="color: #666; font-size: 14px;padding:25px 0;">
+		        +请添加银行卡！
+		    </ion-col>
+		 </ion-row>
+	</ion-grid>
+	<!-- 描述 -->
+	<!-- <ion-grid class="modular" style="margin-top: 10px;">
+		 <ion-row>
+		 	<ion-col style="position: relative;">
+		    	<textarea class="describe"  placeholder="描述" bindon-ngModel="describe" type="text"></textarea>
+		    	<span class="describeNum">{{describe.trim().length}}/150</span>
+		    </ion-col>
+		 </ion-row>
+	</ion-grid> -->
+
+	<button ion-button full class="bigbutton" [disabled]="loadingButton" (click)="addOrder()">创建订单</button>
+</ion-content>

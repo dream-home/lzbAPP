@@ -1,0 +1,215 @@
+page-withdrawCashOrderDetail{
+
+
+    .item-ios{
+        background: #fff;
+    }
+    .list-ios .item-block .item-inner {
+      border-bottom: 0;
+    }
+
+
+    .list-ios ion-item-options {
+      border-bottom: 0;
+    }
+    .list-ios > .item-block:first-child {
+      border-top: 0;
+    }
+
+    .list-ios > .item-block:last-child,
+    .list-ios > .item-wrapper:last-child .item-block {
+      border-bottom: 0;
+    }
+    .recordName{
+        font-size: 13px;
+         font-weight:500;
+         margin-bottom:7px;
+        span{
+            float: right;
+        }
+    }
+    .recordTime{
+        color: #868686;
+        font-weight: normal;
+        font-size: 13px;
+        span{
+            float: right;
+        }
+    }
+  .recordName b{
+    font-weight: normal;
+    font-size: 11px;
+    display: inline-block;
+    background: #fd8832;
+    color: #fff;
+    line-height: 16px;
+    padding:2px 6px;
+    margin-right: 5px;
+  }
+  ion-item .recordName:last-child{
+    border-top:1px solid #e5e5e5;
+  }
+  .list-ios {
+    margin-bottom:10px;
+  }
+
+  .infos{
+    background: #fff;
+    margin-top: 10px;
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+    padding:20px 15px 20px 30px;
+    font-size: 12px;
+
+  }
+  .infos div{
+    line-height: 20px;
+  }
+  .infos p{
+  margin-top:8px;
+  }
+  .infos ion-col div:first-child{
+    position: relative;
+  }
+  .infos ion-row{
+     color:#c0c0c0;
+    border-left:1px solid #c0c0c0;
+     padding:0 0 20px 14px;
+  }
+  .infos ion-row:last-child{
+    padding:0 0 0 14px;
+  }
+
+  .infos ion-row span{
+    background: #c0c0c0;
+     display: block;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: -23px;
+    width: 18px;
+    height: 18px;
+    border-radius:18px;
+
+  }
+  .infos ion-row:last-child span{
+   top:2px;
+  }
+  .infos ion-row.active{
+    color:#ff4444;
+    border-left:1px solid #ff4444;
+    padding:0 0 20px 14px;
+  }
+
+  .infos ion-row.active span{
+      top:-4px;
+      left: -23px;
+      background:#ff4444;
+      width:18px;
+      height:18px;
+      border-radius:22px;
+      text-align: center;
+    }
+
+   .infos ion-row.active .havaicon span{
+    display: block;
+    position: absolute;
+    z-index: 4;
+    top: 0;
+    left: -23px;
+    background:#ff4444;
+    width: 18px;
+    height: 18px;
+    border-radius:18px;
+    text-align: center;
+  }
+
+  .infos ion-row.active:last-child{
+    padding:0 0 0 14px;
+  }
+ .infos ion-row.active:last-child span{ 
+    top:2px;
+  }
+
+
+ .payPage{
+      width: 100%;
+      height: 100%;
+      background:rgba(0,0,0,0.6);
+      position: fixed;
+      z-index: 999;
+      /*bottom:-100%;*/
+    }
+
+    .pwd{
+      width:300px;
+      height:205px;
+      background-color: #fff;
+      margin:70px auto 20px auto;
+      border-radius: 5px;
+    }
+    .close{
+      float: left;
+      margin-left: 5px;
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+       display: inline-block;
+       margin-top:8px;
+
+    }
+    .pwdnum{
+      width:239px;
+      height: 40px;
+      border:1px solid #ccc;
+      margin:10px auto;
+    }
+    .pwdnum span{
+      display: block;
+      float: left;
+      width: 39px;
+      height: 100%;
+      border-right: 1px solid #e5e5e5;
+    }
+    .pwdnum span:last-child{
+      border-right: 0px solid #f4f4f4;
+    }
+    .pwdnum span b{
+      display: inline-block;
+      margin:15px auto;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      background-color: #000;
+    }
+    .numset{
+      position: absolute;
+      z-index:9999;
+      bottom: 0;
+      left: 0;
+      background-color: #fff;
+    }
+    .numset button{
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      color: #333;
+      border:0;
+    }
+    .numset button.hui_btn{
+      background-color: #f4f4f4;
+    }
+    .numset ion-row ion-col{
+      border-right: 1px solid #e5e5e5;
+    }
+    .numset ion-row ion-col:lat-child{
+      border-right:0 solid #e5e5e5;
+    }
+
+    .borderlist{
+      border-top:1px solid #e5e5e5;
+      border-bottom:1px solid #e5e5e5;
+    }
+}

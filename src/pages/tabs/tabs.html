@@ -1,0 +1,5 @@
+<ion-tabs tabsLayout="icon-start"  #mainTabs>
+  <ion-tab [root]="tab1Root" tabTitle="首页"  tabIcon="tab-tab1"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="交易"  tabIcon="tab-tab2" (ionSelect)="show()" ></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="设置"  tabIcon="tab-tab3" (ionSelect)="show()"></ion-tab>
+</ion-tabs>

@@ -1,0 +1,129 @@
+<ion-header>
+    <ion-toolbar>
+        
+        <ion-title center>设置</ion-title>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content background="background:#f4f4f4">
+		<ion-grid  no-padding  (click)="uploadImg()" >
+	        <ion-row class="logo" >
+	            <ion-col text-left col-3>
+	                <img  src="{{showImage}}" style="width:70px;height:70px; margin-bottom:2px; border-radius: 70px 70px 70px 70px ;  " />
+                     <mark>
+                        <img src="assets/img/vipSign.png" *ngIf="userInfo.userType==20"/>
+                    </mark>
+	            </ion-col>
+	            <ion-col text-left col-6 style="margin-left: -1%">
+	                <ion-row col-12>
+	                    <ion-col style="margin-top:9px; font-size: 2.0rem;"  no-padding>
+	                        UID:{{userInfo.uid}}
+	                    </ion-col>
+	                </ion-row>
+	                <ion-row col-12  class="star" >
+	                   	<span>
+                        信誉值&nbsp;
+                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 1"/>
+                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 2"/>
+                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 3"/>
+                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 4"/>
+                        <img src="assets/img/reputation.png" *ngIf="userInfo.credit >= 5"/>
+                        </span>
+	                </ion-row>
+
+	            </ion-col>
+	            <ion-col text-right  col-3 style="padding-top: 30px"  no-padding>
+					 <span  style="float: right; color:#999 !important; ">
+                           更换头像 <b>&gt;</b>
+                        </span>
+	            </ion-col>
+	        </ion-row>
+	    </ion-grid>
+
+        <ion-list  class="person_info perfect" (click)="goUpdateNickName()" >
+            <button ion-item class="itemHeight"  >
+                <span>昵称</span>
+                <span item-right>{{userInfo.nickName}}</span>
+            </button>
+         </ion-list>
+
+
+
+
+
+
+		 <ion-list  class="person_info perfect" (click)="goBank()"  >
+            <button ion-item class="itemHeight" >
+                <span>我的银行卡</span>
+
+            </button>
+         </ion-list>
+
+
+          <ion-list class="person_info perfect   setpassword" style="margin-bottom:10px;" >
+             <button ion-item  class="loginPwd itemHeight"  (click)="goLoginPwdSetting()" >
+                登录密码<span item-right>点击修改</span>
+            </button>
+            <button ion-item class="payPwd itemHeight"  (click)="gopayPwdSetting()">
+                支付密码<span item-right>点击修改</span>
+            </button>
+        </ion-list>
+
+         <ion-list  class="person_info perfect" (click)="feedBack()" >
+            <button ion-item class="itemHeight">
+                <span>投诉建议</span>
+            </button>
+         </ion-list>
+
+
+        <ion-list  class="person_info perfect" (click)="updateApp()" >
+            <button ion-item class="itemHeight">
+                <span>版本</span>
+                <span  *ngIf="IsshowUpdateVersion"   item-right><span style="color:red">*发现新版本</span></span>
+                <span *ngIf="!IsshowUpdateVersion"  item-right><span>{{versions}}</span></span>
+            </button>
+         </ion-list>
+
+
+          <ion-list  class="person_info perfect"  (click)="goAbout()">
+            <button ion-item  class="itemHeight" >
+                <span>关于量子钱包</span>
+                <span item-right></span>
+            </button>
+         </ion-list>
+
+
+         <ion-buttons (click)="Exit()">
+			<button class="loginButton" >退出登录</button>
+         </ion-buttons>
+
+
+
+</ion-content>
+
+<ion-footer>
+    <div class="promptUpdate" *ngIf="showUpdate">
+        <div class="promptUpdate_part">
+            <ion-row class="update_img">
+                <ion-col text-center>
+                    <img src="assets/img/update.png"/>
+                </ion-col>
+            </ion-row>
+            <ion-row class="update_title">
+                <ion-col text-center>{{versions}}软件更新提示</ion-col>
+            </ion-row>
+            <ion-row class="update_cont">
+                <ion-col>{{versionUpdates}}</ion-col>
+            </ion-row>
+            <ion-row class="update_btn">
+                <ion-col>
+                    <button (click)="cancellUpdate()">取消</button>
+                </ion-col>
+                <ion-col>
+                    <button (click)="goUpdate()">下载更新</button>
+                </ion-col>
+            </ion-row>
+        </div>
+    </div>
+</ion-footer>

@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+              <button ion-button icon-only (click)="goToBackPage()">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+        </ion-buttons>
+        <ion-title center>转出/兑换记录</ion-title>
+    </ion-toolbar>
+    <div style="background: #fff;border-bottom:1px solid #e5e5e5; ">
+		  <ion-segment [(ngModel)]="pet" style="width:240px;margin: 0 auto;">
+			    <ion-segment-button value="out" (click)="select(1)">
+			      转出记录
+			    </ion-segment-button>
+			    <span style="padding:0 15px;"></span>
+			    <ion-segment-button value="change"  (click)="select(2)">
+			      兑换记录
+			    </ion-segment-button>
+		  </ion-segment>
+	</div>
+</ion-header>
+<ion-content>
+	<div [ngSwitch]="pet" style="margin-top:10px;"  *ngIf="items!=null && items != ''">
+		<ion-list *ngSwitchCase="'out'" class="borderlist" >
+			 <ion-item *ngFor="let item of items">
+			 	<div class="recordName">转出<span>{{item.amount}}</span></div>
+			 	<span class="recordTime">{{this.utils.formatDate(item.createTime,'yyyy-MM-dd hh:mm:ss')}}</span>
+			 </ion-item>
+		</ion-list>
+	  	<ion-list *ngSwitchCase="'change'" class="borderlist">
+			  <ion-item *ngFor="let item of items">
+			 	<div class="recordName" *ngIf="item.exType==20">兑换成量子基因<span>{{item.amount}}</span></div>
+			 	<div class="recordName" *ngIf="item.exType==10">兑换成量子币<span>{{item.amount}}</span></div>
+			 	<span class="recordTime">{{this.utils.formatDate(item.createTime,'yyyy-MM-dd hh:mm:ss')}}</span>
+			 </ion-item>
+		</ion-list>
+		<div style=" text-align: center; padding-bottom:32px; font-size: 14px; font-weight: 500; color: #666;letter-spacing: 2px;">
+			<span *ngIf="showScroll">
+				下拉加载更多数据...
+			</span>
+			<span *ngIf="!showScroll">
+				已经全部加载完了...
+			</span>
+
+		</div>
+	</div>
+	 <ion-list class="null_list" *ngIf="items == null || items == ''">
+            <ion-row>
+                <ion-col text-center>
+                    没有找到相关记录
+                </ion-col>
+            </ion-row>
+        </ion-list>
+       
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" *ngIf="showScroll">
+			<ion-infinite-scroll-content ></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	
+</ion-content>
